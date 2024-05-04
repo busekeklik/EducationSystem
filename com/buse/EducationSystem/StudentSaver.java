@@ -6,15 +6,14 @@ import java.util.List;
 import java.io.BufferedWriter;
 
 
-public class StudentSaver {
+public class StudentSaver extends EntityFiler{
 
-    private String fieldDelimiter = ";";
     private String newLine = "\r\n";
-    private String filePath;
-
-    public StudentSaver(String filePath){
-        this.filePath = filePath;
+    
+    public StudentSaver(String filePath) {
+        super(filePath);
     }
+
     //first define a method to make formatted output
     private String format(Student student){
         StringBuilder builder = new StringBuilder();
@@ -36,19 +35,6 @@ public class StudentSaver {
         bw.close();
     }
 
-    public String getFieldDelimiter() {
-        return fieldDelimiter;
-    }
-    public void setFieldDelimiter(String fieldDelimiter) {
-        this.fieldDelimiter = fieldDelimiter;
-    }
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
 
     public String getNewLine() {
         return newLine;

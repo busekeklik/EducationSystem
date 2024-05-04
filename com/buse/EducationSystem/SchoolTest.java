@@ -41,6 +41,10 @@ public class SchoolTest {
                             + "\nStudent Name: " + student.getStudentName()
                             + "\nAverage Grade: " + student.getAverageGrade());
         }
+        for(Student student : school.getStudentList()){
+            System.out.println("School No: " + school.getSchoolId());
+            System.out.println(student); //toString() method is called
+        }
     }
     
 }

@@ -48,4 +48,10 @@ public class Student {
     public void setSchool(School school) {
         this.school = school;
     }
+
+    @Override
+    public String toString() {
+        return "Student [averageGrade=" + averageGrade + ", school=" + school + ", studentId=" + studentId
+                + ", studentName=" + studentName + "]";
+    }
 }

@@ -8,14 +8,11 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 
-public class StudentLoader {
-    private String filePath;
-    private String fieldDelimiter="|";
-
-    public StudentLoader(String filePath){
-        this.filePath = filePath;
-    }
+public class StudentLoader extends EntityFiler{
     //first develop loader
+    public StudentLoader(String filePath) {
+        super(filePath);
+    }
 
     //load the list of students 
     public List<Student> load() throws IOException{
@@ -39,13 +36,5 @@ public class StudentLoader {
         String studentName = tokenizer.nextToken();
         double averageGrade = Double.parseDouble(tokenizer.nextToken());
         return new Student(studentId, studentName, averageGrade);
-    }
-
-    public String getFieldDelimiter() {
-        return fieldDelimiter;
-    }
-
-    public void setFieldDelimiter(String fieldDelimiter) {
-        this.fieldDelimiter = fieldDelimiter;
     }
 }

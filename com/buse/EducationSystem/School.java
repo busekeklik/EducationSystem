@@ -37,8 +37,25 @@ public class School {
     public List<Student> getStudentList() {
         return studentList;
     }
-    
+
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
+    }
+
+    //we'll find the student
+    public Student find(long studentId){
+        for(Student student: studentList){
+            if(student.getStudentId() == studentId){
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public Student addStudent(long studentId, String studentName, double averageGrade){
+        Student student = new Student(studentId, studentName, averageGrade);
+        student.setSchool(this);
+        studentList.add(student);
+        return student;
     }
 }
