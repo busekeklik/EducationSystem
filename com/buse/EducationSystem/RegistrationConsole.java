@@ -25,9 +25,26 @@ public class RegistrationConsole {
         return choice;
     }
 
+    private static void handleCommand(int choice) {
+        System.out.println("The command to executed is: " + choice);
+        switch (choice) {
+            case 1: listStudents(); break;
+            case 2: addStudent(); break;
+            case 3: updateStudent(); break;
+            case 4: deleteStudent(); break;
+            case 5: selectStudent(); break;
+            case 6: loadStudents(); break;
+            case 7: saveStudents(); break;
+            case 0: exitConsole(); break;
+            default: System.out.println("Invalid choice"); break;
+                break;
+        }
+    }
+
     public static void main(String[] args) {
         printMenu();
         int choice = scanChoice();
+        handleCommand(choice);
     }
     
 }
