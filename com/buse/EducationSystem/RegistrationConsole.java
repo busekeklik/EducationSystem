@@ -3,7 +3,6 @@ package com.buse.EducationSystem;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 public class RegistrationConsole {
 
     private static Scanner scanner = new Scanner(System.in);
@@ -137,12 +136,20 @@ public class RegistrationConsole {
 
     private static void saveStudents() {
         System.out.println("saving...");
-        try {
-            studentSaver.save(school.getStudentList());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("Students saved successfully");
+        //IMPROVEMENT
+        Runnable runnable = new Runnable() {
+            public void run() {
+                try {
+                    studentSaver.save(school.getStudentList());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Students saved successfully");
+            };
+        };
+        
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
 
     private static void exitConsole() {
